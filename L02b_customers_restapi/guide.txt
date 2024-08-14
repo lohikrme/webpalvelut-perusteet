@@ -1,0 +1,22 @@
+To use router.js endpoints...
+
+"add a new customer":
+which works by sending POST request host/api/customers (data inside body)
+one must insert the data of new customer correctly (excluding ID, which is generated from currentTimeMilliseconds)
+For example, insert next JSON inside body, make sure data type is raw -> JSON:
+{
+        "firstName": "Peter",
+        "lastName": "Griffin",
+        "email": "peter.griffin@familyguy.com",
+        "phone": "0451928327"
+}
+
+"modify a existing customer":
+select PUT method, id is inside req.params.id, other data is inside body
+in addition to raw -> JSON, select also headertype -> contentType -> application/json:
+{
+    "firstName": "Mary",
+    "lastName": "Biden",
+    "email": "mary.biden@gmail.com",
+    "phone": "044932732"
+}
