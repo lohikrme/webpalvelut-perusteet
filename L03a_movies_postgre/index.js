@@ -26,3 +26,5 @@ app.put("/api/movies/:id", query.updateMovie);
 app.listen(port, () => {
   console.log(`Server is running on port ${port}.`);
 });
+
+module.exports = app;

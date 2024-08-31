@@ -106,6 +106,15 @@ const updateMovie = async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 }
+
+// Delete all movies
+const deleteAllMovies = () => {
+  db.query('DELETE FROM movies', (err, res) => {
+    if (err) {
+      return console.error('Error executing query', err.stack)
+    }
+  })
+}
   
 module.exports = {
   getAllMovies: getAllMovies,
@@ -113,4 +122,5 @@ module.exports = {
   addMovie: addMovie,
   deleteMovie: deleteMovie,
   updateMovie: updateMovie,
+  deleteAllMovies: deleteAllMovies
 }

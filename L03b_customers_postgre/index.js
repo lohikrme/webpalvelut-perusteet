@@ -29,3 +29,5 @@ app.put("/api/customers/:id", query.updateCustomer);
 app.listen(port, () => {
     console.log(`Customers-software is listening on port ${port}...`)
 })
+
+module.exports = app;

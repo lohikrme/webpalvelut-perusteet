@@ -1,0 +1,158 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-08-30T09:57:23.993Z",
+    "end": "2024-08-30T09:57:24.057Z",
+    "duration": 64,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "bfe5e044-09d2-42d2-b74c-d5ba9cd6adb3",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2170f877-7519-4104-a1e3-df68723b29fc",
+          "title": "/POST movies",
+          "fullFile": "C:\\Users\\Parrot\\viope-webpalvelut\\L03a_movies_postgre\\test\\movie.spec.js",
+          "file": "\\test\\movie.spec.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"/POST movies\"",
+              "fullTitle": "/POST movies \"before each\" hook in \"/POST movies\"",
+              "timedOut": false,
+              "duration": 3,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "query.deleteAllMovies();\ndone();",
+              "err": {},
+              "uuid": "bad95279-4e27-4f75-be8f-266b202d5835",
+              "parentUUID": "2170f877-7519-4104-a1e3-df68723b29fc",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Add new movie",
+              "fullTitle": "/POST movies Add new movie",
+              "timedOut": false,
+              "duration": 51,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "chai.request(app)\n  .post('/api/movies')\n  .set('Content-Type', 'application/json')\n  .send(JSON.stringify(testMovie))\n  .end((err, res) => {\n    res.should.have.status(201);\n    res.body.should.be.a('object');\n    res.body.should.have.property('title');\n    res.body.should.have.property('title') == 'The Godfather';\n    done();\n   });",
+              "err": {},
+              "uuid": "c3d26d89-325b-47fe-a267-c3b11ecaac2d",
+              "parentUUID": "2170f877-7519-4104-a1e3-df68723b29fc",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c3d26d89-325b-47fe-a267-c3b11ecaac2d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 51,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "30203802-dbbc-40d9-a0f2-211de22036a0",
+          "title": "/GET movies",
+          "fullFile": "C:\\Users\\Parrot\\viope-webpalvelut\\L03a_movies_postgre\\test\\movie.spec.js",
+          "file": "\\test\\movie.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Fetch all movies",
+              "fullTitle": "/GET movies Fetch all movies",
+              "timedOut": false,
+              "duration": 4,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "chai.request(app)\n  .get('/api/movies') \n  .end((err, res) => {\n     res.should.have.status(200);\n     res.body.should.be.a('array');\n     res.body.length.should.be.eql(1);\n     done();\n  });",
+              "err": {},
+              "uuid": "9fca2d3f-602e-4f9a-8f36-cf4c94772e51",
+              "parentUUID": "30203802-dbbc-40d9-a0f2-211de22036a0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9fca2d3f-602e-4f9a-8f36-cf4c94772e51"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.7.3"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}

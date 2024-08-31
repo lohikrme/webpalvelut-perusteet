@@ -41,7 +41,7 @@ const addNewCustomer = async (req, res) => {
             return res.status(400).json({ error: 'firstname, lastname, email and phone are required...' });
         }
         await db.query('INSERT INTO customers (firstname, lastname, email, phone) VALUES ($1, $2, $3, $4)', [newCustomer.firstname, newCustomer.lastname, newCustomer.email, newCustomer.phone]);
-        res.json(newCustomer);
+        res.status(201).json(newCustomer);
     } 
     catch (err) {
         console.error(err);
@@ -115,10 +115,23 @@ const updateCustomer = async (req, res) => {
     }
 };
 
+const deleteAllCustomers = async (req, res) => {
+    try{
+        await db.query("DELETE FROM customers", []);
+        res.status(204).json({message: "All customers have been deleted!"});
+    }
+    catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Internal Server Error'});
+    }
+}
+
+
 module.exports = {
     getAllCustomers: getAllCustomers,
     getCustomerById: getCustomerById,
     addNewCustomer: addNewCustomer,
     deleteCustomer: deleteCustomer,
     updateCustomer: updateCustomer,
+    deleteAllCustomers: deleteAllCustomers
 };

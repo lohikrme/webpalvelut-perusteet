@@ -1,0 +1,30 @@
+[
+    {
+      "id": 2,
+      "firstname": "Mary",
+      "lastname": "Smith",
+      "email": "mary@smith.com",
+      "phone": "6654113"
+    },
+    {
+      "id": 3,
+      "firstname": "Peter",
+      "lastname": "North",
+      "email": "peter@north.com",
+      "phone": "901176"
+    },
+    {
+      "id": 7,
+      "firstname": "Donald",
+      "lastname": "Trump",
+      "email": "donald.trump@gmail.com",
+      "phone": "045 12302386"
+    },
+    {
+      "id": 1,
+      "firstname": "Joe",
+      "lastname": "Biden",
+      "email": "john@johnson.com",
+      "phone": "045 13032183"
+    }
+]
