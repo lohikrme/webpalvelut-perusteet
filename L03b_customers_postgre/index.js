@@ -1,30 +1,33 @@
 // index.js
 // 14th august 2024
 
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
+const query = require("./db/customers");
+const auth = require('./services/authenticate')
 
 const app = express();
 app.use(bodyParser.json());
-
-const query = require("./db/customers");
-
 const port = 3000;
 
 // GET ALL CUSTOMERS
-app.get("/api/customers", query.getAllCustomers);
+app.get("/api/customers", auth.authenticate, query.getAllCustomers);
 
 // GET A CUSTOMER BY ID
-app.get("/api/customers/:id", query.getCustomerById);
+app.get("/api/customers/:id", auth.authenticate, query.getCustomerById);
 
 // ADD NEW CUSTOMER
-app.post("/api/customers", query.addNewCustomer);
+app.post("/api/customers", auth.authenticate, query.addNewCustomer);
 
 // DELETE EXISTING CUSTOMER BY ID
-app.post("/api/customers/:id", query.deleteCustomer);
+app.post("/api/customers/:id", auth.authenticate, query.deleteCustomer);
 
 // UPDATE CUSTOMER BY ID
-app.put("/api/customers/:id", query.updateCustomer);
+app.put("/api/customers/:id", auth.authenticate, query.updateCustomer);
+
+// LOG IN
+app.post("/login", auth.login);
 
 app.listen(port, () => {
     console.log(`Customers-software is listening on port ${port}...`)
