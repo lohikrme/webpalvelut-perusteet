@@ -6,9 +6,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const query = require("./db/customers");
 const auth = require('./services/authenticate')
+const helmet = require('helmet');
 
 const app = express();
 app.use(bodyParser.json());
+app.use(helmet());
 const port = 3000;
 
 // GET ALL CUSTOMERS

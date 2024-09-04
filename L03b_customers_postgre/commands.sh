@@ -7,3 +7,6 @@ npm install jsonwebtoken bcrypt
 
 # for secret key environmental varaible
 npm install dotenv
+
+# against most usual vulnerabilities use helmet library
+npm install helmet
