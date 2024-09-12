@@ -1,0 +1,6 @@
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #d3e8d8; /* Vaaleanvihreä */
+}
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: #51a966; /* Toinen vaaleanvihreä */
+}
