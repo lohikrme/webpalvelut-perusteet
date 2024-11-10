@@ -1,0 +1,233 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-10-12T14:36:57.714Z",
+    "end": "2024-10-12T14:36:57.724Z",
+    "duration": 10,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "87e6e412-8e8d-4120-b244-49b86fac9d21",
+      "title": "",
+      "fullFile": "C:\\Users\\Parrot\\webpalvelut-perusteet\\L06a_typescript-basics\\test\\test.js",
+      "file": "\\test\\test.js",
+      "beforeHooks": [
+        {
+          "title": "\"before all\" hook in \"{root}\"",
+          "fullTitle": "\"before all\" hook in \"{root}\"",
+          "timedOut": false,
+          "duration": 0,
+          "state": null,
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "points = 0;",
+          "err": {},
+          "uuid": "a214e1ef-8390-4dc5-862b-968912f31a60",
+          "parentUUID": "87e6e412-8e8d-4120-b244-49b86fac9d21",
+          "isHook": true,
+          "skipped": false
+        }
+      ],
+      "afterHooks": [
+        {
+          "title": "\"after all\" hook in \"{root}\"",
+          "fullTitle": "\"after all\" hook in \"{root}\"",
+          "timedOut": false,
+          "duration": 1,
+          "state": null,
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "console.log(\"final points: \" + points);",
+          "err": {},
+          "uuid": "c340b10c-492f-4019-93d1-ebd6ca806351",
+          "parentUUID": "87e6e412-8e8d-4120-b244-49b86fac9d21",
+          "isHook": true,
+          "skipped": false
+        }
+      ],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c8f2b8b6-3adb-4c49-979d-0d2753451235",
+          "title": "Testing shapes classes",
+          "fullFile": "C:\\Users\\Parrot\\webpalvelut-perusteet\\L06a_typescript-basics\\test\\test.js",
+          "file": "\\test\\test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "can create Point & toString() return value expected",
+              "fullTitle": "Testing shapes classes can create Point & toString() return value expected",
+              "timedOut": false,
+              "duration": 0,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const p = new Point();\nassert.equal(p.toString(), \"(0,0)\");\npoints++;",
+              "err": {},
+              "uuid": "fcc0e33a-0be5-4da4-be98-3013a5d0b592",
+              "parentUUID": "c8f2b8b6-3adb-4c49-979d-0d2753451235",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "can create Rectangle & toString() return value expected",
+              "fullTitle": "Testing shapes classes can create Rectangle & toString() return value expected",
+              "timedOut": false,
+              "duration": 0,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const r = new Rectangle(\"RE\", new Point(12, 34), 56, 78);\nlet str = \"name: RE, location: (12,34), w: 56, h: 78\".replace(/\\s/g, \"\").toLowerCase();\nassert.equal(r.toString().replace(/\\s/g, \"\").toLowerCase(), str);\npoints++;",
+              "err": {},
+              "uuid": "55c9a884-f4ce-4908-badf-c8b3fc90fb49",
+              "parentUUID": "c8f2b8b6-3adb-4c49-979d-0d2753451235",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "can create Ellipse & toString() return value expected",
+              "fullTitle": "Testing shapes classes can create Ellipse & toString() return value expected",
+              "timedOut": false,
+              "duration": 0,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const r = new Ellipse(\"RE\", new Point(12, 34), 56, 78);\nlet str = \"name: RE, location: (12,34), a: 56, b: 78\".replace(/\\s/g, \"\").toLowerCase();\nassert.equal(r.toString().replace(/\\s/g, \"\").toLowerCase(), str);\npoints++;",
+              "err": {},
+              "uuid": "90fe021e-6212-4cb2-8525-4ddbb7aaec3e",
+              "parentUUID": "c8f2b8b6-3adb-4c49-979d-0d2753451235",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "can create Square & toString() return value expected",
+              "fullTitle": "Testing shapes classes can create Square & toString() return value expected",
+              "timedOut": false,
+              "duration": 0,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const sq = new Square(\"SQ\", new Point(12, 34), 56);\nlet str = \"name: SQ, location: (12,34), w: 56, h: 56\".replace(/\\s/g, \"\").toLowerCase();\nassert.equal(sq.toString().replace(/\\s/g, \"\").toLowerCase(), str);\npoints++;",
+              "err": {},
+              "uuid": "fa63eaaf-99fb-46b2-89cb-c88cfb97f865",
+              "parentUUID": "c8f2b8b6-3adb-4c49-979d-0d2753451235",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "can create Circle & toString() return value expected",
+              "fullTitle": "Testing shapes classes can create Circle & toString() return value expected",
+              "timedOut": false,
+              "duration": 0,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const sq = new Circle(\"SQ\", new Point(12, 34), 56);\nlet str = \"name: SQ, location: (12,34), a: 56, b: 56\".replace(/\\s/g, \"\").toLowerCase();\nassert.equal(sq.toString().replace(/\\s/g, \"\").toLowerCase(), str);\npoints++;",
+              "err": {},
+              "uuid": "741aadec-401f-4702-99ec-0a785b4d9da4",
+              "parentUUID": "c8f2b8b6-3adb-4c49-979d-0d2753451235",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "can create & use Shapes: add(Shape) / remove(name) / remove(Point)",
+              "fullTitle": "Testing shapes classes can create & use Shapes: add(Shape) / remove(name) / remove(Point)",
+              "timedOut": false,
+              "duration": 0,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const shapes = new Shapes();\nshapes.add(new Rectangle(\"RE\", new Point(1, 2), 34, 56));\nlet sh = shapes.remove(\"RE\");\nassert.equal(sh instanceof Rectangle, true, \"Removed should be instance of Rectangle\");\npoints++;\nshapes.add(new Rectangle(\"RE2\", new Point(1, 2), 34, 56));\nsh = shapes.remove(\"RE\");\nassert.equal(sh instanceof Rectangle, false, \"Removed should not be instance of Rectangle\");\npoints++;\nshapes.add(new Ellipse(\"E1\", new Point(1, 2), 34, 56));\nshapes.add(new Ellipse(\"E1\", new Point(1, 2), 34, 56));\nsh = shapes.remove(\"E1\");\nassert.equal(sh instanceof Ellipse, true, \"Removed should be instance of Ellipse\");\npoints++;\nsh = shapes.remove(\"E1\");\nassert.equal(sh instanceof Ellipse, false, \"Removed should not be instance of Ellipse\");\npoints++;\nshapes.add(new Ellipse(\"E2\", new Point(10, 20), 34, 56));\nsh = shapes.remove2(new Point(10, 20));\nassert.equal(sh instanceof Ellipse, true, \"Removed by Point should be instance of Ellipse\");\npoints++;\nshapes.add(new Circle(\"SQ1\", new Point(110, 220), 34, 56));\nshapes.add(new Square(\"SQ2\", new Point(111, 221), 34, 56));\nshapes.add(new Circle(\"SQ3\", new Point(112, 222), 34, 56));\nsh = shapes.remove(\"SQ2\");\nassert.equal(sh instanceof Square, true, \"Removed should be instance of Square\");\npoints++;\nsh = shapes.remove(\"SQ2\");\nassert.equal(sh instanceof Square, false, \"Removed should not be instance of Square\");\npoints++;\nsh = shapes.remove(\"SQ1\");\nassert.equal(sh instanceof Circle, true, \"Removed should be instance of Circle\");\npoints++;\nsh = shapes.remove2(new Point(112, 222));\nassert.equal(sh instanceof Circle, true, \"Removed by Point should be instance of Circle\");\npoints++;",
+              "err": {},
+              "uuid": "acec1cc9-0323-43c9-b105-073b16305d9b",
+              "parentUUID": "c8f2b8b6-3adb-4c49-979d-0d2753451235",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "fcc0e33a-0be5-4da4-be98-3013a5d0b592",
+            "55c9a884-f4ce-4908-badf-c8b3fc90fb49",
+            "90fe021e-6212-4cb2-8525-4ddbb7aaec3e",
+            "fa63eaaf-99fb-46b2-89cb-c88cfb97f865",
+            "741aadec-401f-4702-99ec-0a785b4d9da4",
+            "acec1cc9-0323-43c9-b105-073b16305d9b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.7.3"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}

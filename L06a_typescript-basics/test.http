@@ -1,0 +1,9 @@
+
+### NEXT 2 COMMANDS ARE THE SAME
+GET http://localhost:4321
+###
+GET http://{{$dotenv SERVERNAME}}:{{$dotenv SERVERPORT}}
+
+
+### 
+GET http://{{$dotenv SERVERNAME}}:{{$dotenv SERVERPORT}}/api/students
