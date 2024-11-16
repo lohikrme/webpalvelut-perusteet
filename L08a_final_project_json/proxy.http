@@ -1,0 +1,35 @@
+### THIS FILE TESTS PROXY STRAIGHT
+
+### first page
+GET {{$dotenv PROXY_URL}}
+
+### get all parrots via proxy server from backend server
+GET {{$dotenv PROXY_URL}}/proxy/parrots
+
+### get a parrot by id via proxy server from backend server
+GET {{$dotenv PROXY_URL}}/proxy/parrots/2
+
+### update a parrot by id via proxy server from backend server
+PUT {{$dotenv PROXY_URL}}/proxy/parrots/1
+Content-Type: application/json
+
+{
+    "name": "Höyhentyyny",
+    "species": "Blue-Yellow Macaw",
+    "age": 16
+}
+
+### add a new parrot via proxy server from backend server
+POST {{$dotenv PROXY_URL}}/proxy/parrots
+Content-Type: application/json
+
+{
+    "id": 1,
+    "name": "Maya",
+    "species": "Red Macaw",
+    "age": 15
+}
+
+
+### delete a parrot by id via proxy server from backend server
+DELETE {{$dotenv PROXY_URL}}/proxy/parrots/1
