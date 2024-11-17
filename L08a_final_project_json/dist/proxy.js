@@ -14,8 +14,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const dotenv_1 = __importDefault(require("dotenv"));
+const cors_1 = __importDefault(require("cors"));
 dotenv_1.default.config();
+// initiate express (backend) application
 const app = (0, express_1.default)();
+// allow requests from anywhere with cors policy
+app.use((0, cors_1.default)());
+// allow and validate json data
 app.use(express_1.default.json({
     verify: (req, res, buf, encoding) => {
         try {
@@ -26,6 +31,7 @@ app.use(express_1.default.json({
         }
     }
 }));
+// allow also json data that contains more json data within
 app.use(express_1.default.urlencoded({ extended: true }));
 // deliver requests from proxy to backend
 // fetch works as promise, so when u write .then(x => y)
@@ -34,7 +40,7 @@ app.use(express_1.default.urlencoded({ extended: true }));
 // x2 is the modified data from previous .then, so it is basically y... etc etc
 // ----- GET ALL PARROTS BY PROXY
 app.get('/proxy/parrots', (req, res) => {
-    console.log("proxy.ts works fine!");
+    // console.log("proxy.ts works fine!")
     // fetch from backend server using GET request
     fetch(`${process.env.BACKEND_URL}/api/parrots`)
         .then(resp => {
@@ -71,8 +77,8 @@ app.get('/proxy/parrots/:id', (req, res) => {
 });
 // ----- CREATE A NEW PARROT VIA PROXY
 app.post('/proxy/parrots', (req, res) => {
-    console.log(req.body);
-    console.log(JSON.stringify(req.body));
+    // console.log(req.body)
+    // console.log(JSON.stringify(req.body))
     // fetch from backend server using POST request and all data inside body
     fetch(`${process.env.BACKEND_URL}/api/parrots`, {
         method: "POST",
@@ -98,8 +104,8 @@ app.post('/proxy/parrots', (req, res) => {
 app.put('/proxy/parrots/:id', (req, res) => {
     // take id from params, attributes from body
     const id = Number(req.params.id);
-    console.log(req.body);
-    console.log(JSON.stringify(req.body));
+    // console.log(req.body)
+    // console.log(JSON.stringify(req.body))
     // fetch from backend server using PUT request, id in url param, other data inside body
     fetch(`${process.env.BACKEND_URL}/api/parrots/${id}`, {
         method: "PUT",
@@ -125,7 +131,7 @@ app.put('/proxy/parrots/:id', (req, res) => {
 app.delete('/proxy/parrots/:id', (req, res) => {
     // take id from params, attributes from body
     const id = Number(req.params.id);
-    console.log(id);
+    // console.log(id)
     // fetch from backend server using DELETE request, id in url param
     fetch(`${process.env.BACKEND_URL}/api/parrots/${id}`, {
         method: "DELETE",
@@ -144,5 +150,5 @@ app.delete('/proxy/parrots/:id', (req, res) => {
 });
 const port = Number(process.env.PROXY_PORT) || 3201;
 app.listen(port, () => {
-    console.log(`Backend server listening on port: ${port}`);
+    console.log(`Proxy server listening on port: ${port}`);
 });

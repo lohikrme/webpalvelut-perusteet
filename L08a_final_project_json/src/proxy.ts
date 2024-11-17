@@ -44,7 +44,7 @@ app.use(express.urlencoded({extended: true}))
 
 // ----- GET ALL PARROTS BY PROXY
 app.get('/proxy/parrots', (req: express.Request, res: express.Response) => {
-    console.log("proxy.ts works fine!")
+    // console.log("proxy.ts works fine!")
     // fetch from backend server using GET request
     fetch(`${process.env.BACKEND_URL}/api/parrots`)
     .then(resp => {
@@ -166,5 +166,5 @@ app.delete('/proxy/parrots/:id', (req: express.Request, res: express.Response) =
 
 const port: number = Number(process.env.PROXY_PORT) || 3201
 app.listen(port, ()=> {
-    console.log(`Backend server listening on port: ${port}`)
+    console.log(`Proxy server listening on port: ${port}`)
 })

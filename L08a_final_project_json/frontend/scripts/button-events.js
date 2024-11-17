@@ -8,13 +8,14 @@ function displayData(data) {
 
 
 // GET ALL PARROTS BUTTON
+// notice that response is transformed into json form
 document.getElementById('get_all_button').addEventListener('click', () => {
     fetch(`http://localhost:3200/proxy/parrots`)
         .then(resp => resp.json())
         .then(data => displayData(data))
         .catch(error => {
             console.error('Error fetching data: ', error.message)
-            displayData(JSON.parse(error.message))
+            displayData({error: `Error fetching data: ${error.message}`})
         })
 })
 
@@ -29,14 +30,13 @@ document.getElementById('get_by_id_button').addEventListener('click', () => {
         .then(data => displayData(data))
         .catch(error => {
             console.error('Error fetching data: ', error.message)
-            displayData(JSON.parse(error.message))
+            displayData({error: `Error fetching data: ${error.message}`})
         })
     return false;
 })
 
 // DELETE PARROT BUTTON
 document.getElementById('delete_by_id_button').addEventListener('click', () => {
-
     // fetch first id from frontend
     let id = parseInt(document.getElementById('id_value').value)
     // use id to make the fetch
@@ -45,18 +45,18 @@ document.getElementById('delete_by_id_button').addEventListener('click', () => {
             method: "DELETE"
         })
         .then(resp => resp.json())
-        .then(data => displayData(data))
+        .then(data => {
+            displayData(data)
+            alert(JSON.stringify(data))
+        })
         .catch(error => {
             console.error('Error fetching data: ', error.message)
-            displayData(JSON.parse(error.message))
+            displayData({error: `Error fetching data: ${error.message}`})
         })
 })
 
 // UPDATE PARROT BUTTON
-document.getElementById('update_by_id_button').addEventListener('click', (event) => {
-
-    event.preventDefault()
-
+document.getElementById('update_by_id_button').addEventListener('click', () => {
     // fetch first id and other attributesfrom frontend
     let id = parseInt(document.getElementById('id_value').value)
     let name = document.getElementById('name_value').value
@@ -76,17 +76,19 @@ document.getElementById('update_by_id_button').addEventListener('click', (event)
             }
         })
         .then(resp => resp.json())
-        .then(data => displayData(data))
+        .then(data => {
+            displayData(data)
+            alert(JSON.stringify(data))
+        })
         .catch(error => {
             console.error('Error fetching data: ', error.message)
-            displayData(JSON.parse(error.message))
+            displayData({error: `Error fetching data: ${error.message}`})
         })
 })
 
 
 // ADD A NEW PARROT BUTTON
 document.getElementById('add_new_button').addEventListener('click', () => {
-
     // fetch first id and other attributesfrom frontend
     let id = parseInt(document.getElementById('id_value').value)
     let name = document.getElementById('name_value').value
@@ -107,10 +109,13 @@ document.getElementById('add_new_button').addEventListener('click', () => {
             }
         })
         .then(resp => resp.json())
-        .then(data => displayData(data))
+        .then(data => {
+            displayData(data)
+            alert(JSON.stringify(data))
+        })
         .catch(error => {
             console.error('Error fetching data: ', error.message)
-            displayData(JSON.parse(error.message))
+            displayData({error: `Error fetching data: ${error.message}`})
         })
 })
 

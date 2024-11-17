@@ -28,12 +28,12 @@ function createNewParrot(config: Parrot) {
 // function to find out dynamically location of data files
 // using ternary operator ? : to shortcut truth sentence
 function dynamicPathToData() {
-    console.log(__dirname)
+    // console.log(__dirname)
     const isDist = __dirname.includes('dist')
     const datafile = (isDist ? path.join(__dirname, 'data', 'parrots.json') :
         path.join(__dirname, '..', 'dist', 'data', 'parrots.json')
     )
-    console.log(datafile)
+    // console.log(datafile)
     if (!datafile) return ""
     return datafile
 }

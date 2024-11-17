@@ -7,6 +7,7 @@ const express_1 = __importDefault(require("express"));
 const path_1 = __importDefault(require("path"));
 const fs_1 = __importDefault(require("fs"));
 const dotenv_1 = __importDefault(require("dotenv"));
+const cors_1 = __importDefault(require("cors"));
 dotenv_1.default.config();
 // use function to create new parrots
 function createNewParrot(config) {
@@ -20,19 +21,25 @@ function createNewParrot(config) {
 // function to find out dynamically location of data files
 // using ternary operator ? : to shortcut truth sentence
 function dynamicPathToData() {
-    console.log(__dirname);
+    // console.log(__dirname)
     const isDist = __dirname.includes('dist');
     const datafile = (isDist ? path_1.default.join(__dirname, 'data', 'parrots.json') :
         path_1.default.join(__dirname, '..', 'dist', 'data', 'parrots.json'));
-    console.log(datafile);
+    // console.log(datafile)
     if (!datafile)
         return "";
     return datafile;
 }
-// because we are receiving json data, we need to use express.json() middleware
-// the verify parameter is optional, but helps avoid crashes due to bad json content
-// also the urlencoded extended is optional, allows incoming data with json inside json
+// initiate cors policy options
+let corsOptions = {
+    origin: `http://localhost:${process.env.PROXY_PORT}`,
+    optionsSuccessStatus: 200
+};
+// initiate express (backend) application
 const app = (0, express_1.default)();
+// allow requests only from proxy server with cors policy
+app.use((0, cors_1.default)(corsOptions));
+// allow and validate json data
 app.use(express_1.default.json({
     verify: (req, res, buf, encoding) => {
         try {
@@ -43,6 +50,7 @@ app.use(express_1.default.json({
         }
     }
 }));
+// allow also json data that contains more json data within
 app.use(express_1.default.urlencoded({ extended: true }));
 // ----- MAIN ENDPOINT
 app.get('/', (req, res) => {
@@ -124,7 +132,7 @@ app.get('/api/parrots/:id', (req, res) => {
             return;
         }
         // if parrot was found, return it
-        res.json({ parrot });
+        res.json(parrot);
         return;
     });
 });
