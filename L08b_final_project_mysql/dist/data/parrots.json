@@ -1,0 +1,140 @@
+[
+    {
+        "id": 1,
+        "name": "Maya",
+        "species": "Red Macaw",
+        "age": 15
+    },
+    {
+        "id": 2,
+        "name": "Polly",
+        "species": "Budgie",
+        "age": 3
+    },
+    {
+        "id": 3,
+        "name": "Sireeni",
+        "species": "Sun Corune",
+        "age": 8
+    },
+    {
+        "id": 4,
+        "name": "Katri Helena",
+        "species": "White Cockatoo",
+        "age": 65
+    },
+    {
+        "id": 5,
+        "name": "Olli Koskimaa",
+        "species": "Hyacinth Macaw",
+        "age": 25
+    },
+    {
+        "id": 6,
+        "name": "Matti Welin",
+        "species": "Budgie",
+        "age": 35
+    },
+    {
+        "id": 7,
+        "name": "Kraakku",
+        "species": "Red Macaw",
+        "age": 41
+    },
+    {
+        "id": 8,
+        "name": "Chinese Parrot",
+        "species": "Parrotlet",
+        "age": 46
+    },
+    {
+        "id": 9,
+        "name": "Skorpus",
+        "species": "Budgie",
+        "age": 21
+    },
+    {
+        "id": 10,
+        "name": "Höyhentyyny",
+        "species": "Hyacinth Macaw",
+        "age": 19
+    },
+    {
+        "id": 11,
+        "name": "Donald Trump",
+        "species": "Hyacinth Macaw",
+        "age": 78
+    },
+    {
+        "id": 50,
+        "name": "Pähkinänsärkijä",
+        "species": "Hyacinth Macaw",
+        "age": 19
+    },
+    {
+        "id": 100,
+        "name": "Maya2",
+        "species": "Red Macaw",
+        "age": 15
+    },
+    {
+        "id": 101,
+        "name": "Polly2",
+        "species": "Budgie",
+        "age": 3
+    },
+    {
+        "id": 102,
+        "name": "Sireeni2",
+        "species": "Sun Corune",
+        "age": 8
+    },
+    {
+        "id": 103,
+        "name": "Katri Helena2",
+        "species": "White Cockatoo",
+        "age": 65
+    },
+    {
+        "id": 104,
+        "name": "Olli Koskimaa2",
+        "species": "Hyacinth Macaw",
+        "age": 25
+    },
+    {
+        "id": 105,
+        "name": "Matti Welin2",
+        "species": "Budgie",
+        "age": 35
+    },
+    {
+        "id": 106,
+        "name": "Kraakku2",
+        "species": "Red Macaw",
+        "age": 41
+    },
+    {
+        "id": 107,
+        "name": "Chinese Parrot2",
+        "species": "Parrotlet",
+        "age": 46
+    },
+    {
+        "id": 108,
+        "name": "Skorpus2",
+        "species": "Budgie",
+        "age": 21
+    },
+    {
+        "id": 109,
+        "name": "Höyhentyyny2",
+        "species": "Hyacinth Macaw",
+        "age": 19
+    },
+    {
+        "id": 110,
+        "name": "Donald Trump2",
+        "species": "Hyacinth Macaw",
+        "age": 78
+    }
+]

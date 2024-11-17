@@ -1,0 +1,36 @@
+
+### THIS FILE TESTS BACKEND STRAIGHT
+
+### starting page
+GET {{$dotenv BACKEND_URL}}
+
+### get all parrots directly from backend server
+GET {{$dotenv BACKEND_URL}}/api/parrots
+
+### get a parrot by id directly from backend server
+GET {{$dotenv BACKEND_URL}}/api/parrots/66
+
+### update a parrot by id directly from backend server
+PUT {{$dotenv BACKEND_URL}}/api/parrots/10
+Content-Type: application/json
+
+{
+    "name": "Höyhentyyny",
+    "species": "Hyacinth Macaw",
+    "age": 19
+}
+
+### add a new parrot directly from backend server
+### this time id is auto increment so not in body
+POST {{$dotenv BACKEND_URL}}/api/parrots
+Content-Type: application/json
+
+{
+    "name": "Polly",
+    "species": "Budgie",
+    "age": 3
+}
+
+
+### delete a parrot directly from backend server
+DELETE {{$dotenv BACKEND_URL}}/api/parrots/2

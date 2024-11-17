@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front End</title>
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+    <div class="header">
+        <img src="./images/parrot-logo1.png">
+        <h1 class="h1a">Parrot Website</h1>
+    </div>
+    <div class="content">
+        <img id="image1" src="./images/Red-Macaw.png">
+        
+        <div class="wrapper">
+            <h2 id="parrot_attributes">Parrot Attributes:</h2><br>
+            <div class="incoming-parrot-data">
+                <div class="input1">
+                    <p>Id: </p><input id="id_value" type="number" value="1"><br>
+                </div>
+                <div class="input2">
+                    <p>Name: </p><input id="name_value" type="text" value="Maya"><br>
+                </div>
+                <div class="input3">
+                    <p>Species: </p><input id="species_value" type="text" value="Red Macaw"><br>
+                </div>
+                <div class="input4">
+                    <p>Age: </p><input id="age_value" type="number" value="15">
+                </div>
+            </div> <!-- incoming parrot data div ends-->
+        </div> <!-- wrapper ends-->
+        <div class="buttons">
+            <button id="get_all_button" type="button">Get All Parrots</button>
+            <button id="get_by_id_button" type="button">Find Parrot By Id</button>
+            <button id="delete_by_id_button" type="button">Delete Parrot By Id</button>
+            <button id="update_by_id_button" type="button">Update Parrot By Id</button>
+            <button id="add_new_button" type="button">Add a new Parrot</button>
+            <button id="clear_button" type="button">Clear Data</button>
+        </div>
+
+        <div class="data-wrapper">
+            <h2> Data of Parrots</h2>
+            <pre id="data_output">
+
+            </pre>
+        </div>
+        
+    </div> <!-- content ends-->
+    <div class="footer">
+        <span>
+            <p>Made by Chinese Parrot 16th November 2024</p>
+        </span>
+    </div>
+    
+    <script src="./scripts/button-events.js"></script>
+</body>
+</html>
