@@ -2,32 +2,37 @@ const jwt = require('jsonwebtoken');
 const user = require('../db/users');
 const bcrypt = require('bcrypt');
 
-// user login
-const login = (req, res) => {
-    // extract email and password from the request body
+// user login using promises
+// to use the login, use password 'john007' which has hash form of
+// '$2b$08$XX615l/tHyDneJ.A1CJZZu1CSo6RAEJyEReozQC.yoObjKcOCxkPe' 
+const login = async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
-
-    const loginUser = user.getUserByEmail(email, (userData) => {
-        console.log(`\n \n USERDATA LOOKS NEXT!!! \n \n ${userData[0].email} ${userData[0].password} \n \n \n`)
-        if (userData.length == 1) {
-            const hashpassword = userData[0].password;
-            // create json web token
-            const token = jwt.sign({userID: email}, process.env.SECRET_KEY);
-
-            // if password match, send the token
-            if (bcrypt.compareSync(password, hashpassword)) {
-                res.send({token});
-            }
-            else {
-                res.sendStatus(400).json({message: "Login has failed - password != hashpassword"})
-            }
-        }
-        else {
-            res.sendStatus(400).json({message: "Login has failed - userData.length != 1"})
-        }
-    });
-}
+  
+    console.log("\nLogin request has been received! \nemail: ", email, "  password: ", password);
+  
+    try {
+      const userData = await user.getUserByEmail(email);
+  
+      if (userData.length === 0) {
+        return res.status(400).json({ message: "Login has failed - user not found" });
+      }
+  
+      const hashpassword = userData[0].password;
+      const token = jwt.sign({ userID: email }, process.env.SECRET_KEY);
+  
+      if (bcrypt.compareSync(password, hashpassword)) {
+        return res.json({ token });
+      } 
+      else {
+        return res.status(400).json({ message: "Login has failed - incorrect password" });
+      }
+    } 
+    catch (error) {
+      console.error(error.message);
+      return res.status(500).json({ message: "Internal server error" });
+    }
+};
 
 // User authentication using RFC 6750 standard OAuth 2.0 Bearer token aka Bearer <token>
 // so, to use authenticate function, it will require next request header:
